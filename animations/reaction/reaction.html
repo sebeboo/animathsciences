@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html>
+  <head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<meta http-equiv="X-UA-Compatible" content="chrome=1,IE=edge" />
+	<title>reaction</title>
+	<style>
+		html {
+			height:100%;
+		}
+		body {
+			background-color:#FFFFFF;
+			margin:0;
+			height:100%;
+		}
+	</style>
+	<!-- copy these lines to your document head: -->
+
+	<meta name="viewport" content="user-scalable=yes, width=800" />
+	
+	<script language="JavaScript">
+
+var startTime=new Date();
+var endTime=new Date();
+var startPressed=false;
+var bgChangeStarted=false;
+var maxWait=20;
+var timerID;
+
+
+var colors=new Array("tomato","chocolate","limegreen","red","darkslategray",
+"orange","mediumslateblue","cornflowerblue","green","blue","coral",
+"darkolivegreen","black")
+
+function startTest()
+{
+	document.getElementById("reflex").style.backgroundColor=colors[Math.floor(Math.random()*colors.length)];
+	var coucou = Math.floor(400*Math.random()) - 200;
+	var coucoutop = Math.floor(85*Math.random()) - 30;
+	document.getElementById("reflex").style.left = coucou + "px";
+	document.getElementById("reflex").style.top = coucoutop + "px";
+	bgChangeStarted=true;
+	startTime=new Date();
+}
+
+function remark(responseTime)
+{
+	var responseString="";
+	if (responseTime < 100)
+		responseString="Excellent !";
+	if (responseTime >= 100 && responseTime < 200)
+		responseString="Très Bien !";
+	if (responseTime >= 200 && responseTime < 300)
+		responseString="Pas mal !";
+	if (responseTime >= 300 && responseTime < 600)
+		responseString="Correct";
+	if (responseTime >= 600 && responseTime < 1000)
+		responseString="Un peu long";
+	if (responseTime >=1000)
+		responseString="Trop long !";
+
+	return responseString;
+}
+
+function stopTest()
+{
+	if(bgChangeStarted)
+	{
+		endTime=new Date();
+		var responseTime=(endTime.getTime()-startTime.getTime());  // on "/1000" pour avoir en seconde 
+		document.getElementById('att').innerHTML = '';
+		document.getElementById("reflex").style.backgroundColor="white";
+		msg= "Temps de réaction : " + responseTime + " ms. " + "\n" + remark(responseTime);
+		msg5= "" + responseTime + "ms. "
+		sol.innerHTML =msg;
+		document.getElementById('sol2').innerHTML = msg5 + document.getElementById('sol2').innerHTML;
+
+// Début etude stats
+		
+		var a = document.getElementById("sol2");
+var essai = a.textContent;
+     essai.toString();
+    
+        var arr = essai.split("ms. ");
+
+	var q=arr.length-1
+  
+sol5.innerHTML=q;
+
+var somme=0;
+	var sommecarre=0;
+	
+	for (var i=0;i<q;i++)
+			{
+			arr[i]=arr[i]*1;	//pour passer de string à number
+			somme=somme+arr[i];
+			sommecarre=sommecarre+(arr[i]*arr[i]);
+			};
+			
+	arr.sort(function(x,y){return x-y});
+	var minimum =arr[1];
+	mini.innerHTML=minimum;
+	
+var maximum = arr[0];
+maximum =arr[q];
+
+maxi.innerHTML = maximum;
+
+	// calcul médiane
+        var index;
+        var median;
+    
+        if (q % 2 == 0) {
+            index = q / 2;
+            index = (arr[index+1] + arr[index]) / 2;
+            median = index;
+        } else {
+            index = (((q / 2)) - .5);
+            median = arr[index+1];
+        }
+    
+        median = Number(median);
+    
+        mediane.innerHTML = median;
+	// Fin calcul médiane
+	
+	// calcul 1er Quartile
+	var prem;
+	var ind;
+	ind = Math.ceil(q/4);
+	prem=arr[ind];
+	document.getElementById("1erQ").innerHTML = "" + prem + "";
+	
+	// Fin calcul 1er Quartile
+	
+	// calcul 3eme Quartile
+	var ter;
+	var tind;
+	tind = Math.ceil(3*q/4);
+	ter=arr[tind];
+	document.getElementById("3emeQ").innerHTML = "" + ter + "";
+	
+	// Fin calcul 3eme Quartile
+	
+	// Interquartile
+	
+	var inter = ter-prem;
+	document.getElementById("inter").innerHTML = "" + inter + "";
+	
+	// Fin interquartile
+	
+	var moyenn=0;
+	moyenn=Math.round((somme/q)*100)/100;
+moyenne.innerHTML=moyenn;
+	var variance=0;
+	variance=sommecarre/q-moyenn*moyenn;
+	var ecarttype=0;
+	ecarttype= Math.round(Math.sqrt(variance)*100)/100;
+ecart.innerHTML = ecarttype;
+
+
+var maxCount = 0;
+        var mode = 0;
+    
+        for (var i = 0; i < q; i++) {
+            var counter = 0;
+            for (var j = 0; j < q; j++) {
+                if (arr[i+1] == arr[j+1]) {
+                    counter++;
+                }
+                if (counter > maxCount) {
+                    maxCount = counter;
+                    mode = arr[i+1];
+                }
+            }
+        }
+    
+        mode = Number(mode);
+    
+        document.getElementById("mode").innerHTML = "" + mode + "";
+
+
+
+// Fin etude stats
+		
+		startPressed=false;
+		bgChangeStarted=false;
+		
+	}
+	else
+	{
+		if (!startPressed)
+		{
+		
+		msg1= "Appuyez sur Jouer d'abord";
+		sol.innerHTML =msg1;
+		}
+		else
+		{       
+			clearTimeout(timerID);
+			startPressed=false;             
+			msg2= "Faux départ, cliquer à nouveau sur Jouer !";
+			sol.innerHTML =msg2;
+			document.getElementById('att').innerHTML = '';
+		}               
+	}
+
+}
+
+var randMULTIPLIER=0x015a4e35;
+var randINCREMENT=1;
+var today=new Date();
+var randSeed=today.getSeconds();
+function randNumber()
+{
+	randSeed = (randMULTIPLIER * randSeed + randINCREMENT) % (1 << 31);
+	return((randSeed >> 15) & 0x7fff) / 32767;
+}
+
+function startit()
+{
+	if(startPressed)
+	{
+
+		msg3= "Déja commencé !";
+		sol.innerHTML =msg3;
+		return;
+	}
+	else
+	{
+	document.getElementById('att').innerHTML = '<img src="reaction.hyperesources/wait.gif">';
+		startPressed=true; 
+		timerID=setTimeout('startTest()', 6000*randNumber());
+	}
+}
+
+ 
+</script>
+
+
+
+	
+
+	<!-- end copy -->
+  </head>
+  <body>
+	<!-- copy these lines to your document: -->
+
+	<div id="reaction_hype_container" style="margin:auto;position:relative;width:800px;height:480px;overflow:hidden;" aria-live="polite">
+		<script type="text/javascript" charset="utf-8" src="reaction.hyperesources/reaction_hype_generated_script.js?58920"></script>
+	</div>
+
+	<!-- end copy -->
+	
+
+
+	<!-- text content for search engines: -->
+
+	<div style="display:none">
+
+		<div>Jouer</div>
+		<div>
+</div>
+		<div>Stop</div>
+		<div>Maximum :
+</div>
+		<div>Réinitialiser</div>
+		<div>Temps de réaction</div>
+		<div>Retour
+</div>
+		<div>Médiane :
+</div>
+		<div>Appuyer sur « Jouer » puis, dès que le cercle se colore, cliquer dessus !</div>
+		<div>1er Quartile :
+</div>
+		<div>Nombre
+d'essais :</div>
+		<div>3ème Quartile :
+</div>
+		<div>minimum :
+</div>
+		<div>Stats</div>
+		<div>Moyenne :
+</div>
+		<div>Ecart Interquartile :
+</div>
+		<div>Ecart-type :
+</div>
+
+	</div>
+
+	<!-- end text content: -->
+
+  </body>
+</html>

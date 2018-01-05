@@ -1,0 +1,358 @@
+<!DOCTYPE html>
+<html lang="fr" dir="ltr">
+    <head>
+        <title>fonction sinus - GeoGebra</title>        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=yes">
+
+                <!-- Chrome, Firefox OS and Opera -->
+        <meta name="theme-color" content="#6161FF">
+        <!-- Windows Phone -->
+        <meta name="msapplication-navbutton-color" content="#6161FF">
+        <!-- iOS Safari -->
+        <meta name="apple-mobile-web-app-capable" content="yes">
+        <meta name="apple-mobile-web-app-status-bar-style" content="#6161FF">
+
+        <meta property="og:title" content="fonction sinus" />
+<meta property="og:description" content="" />
+<meta property="og:site_name" content="GeoGebra" />
+<meta property="og:type" content="article" />
+<meta property="og:image" content="https://cdnv2.geogebra.org/resource/UHBsQY3T/1iXD2L1u286grUj8/material-UHBsQY3T.png" />
+<meta property="twitter:card" content="summary" />
+<meta property="twitter:site" content="@geogebra" />
+<meta property="fb:app_id" content="185307058177853" />
+<meta property="article:published_time" content="2018-01-01" />
+<meta property="article:publisher" content="https://www.facebook.com/geogebra" />
+        <link rel="stylesheet" type="text/css" href="GeoGebra/includes/css/structure.ltr.css?v=1513086248" />
+        <link rel="stylesheet" type="text/css" href="GeoGebra/includes/css/screen.ltr.css?v=1513086248" media="screen and (min-width: 769px)" />
+        <link rel="stylesheet" type="text/css" href="GeoGebra/includes/css/tablet.ltr.css?v=1513086248" media="screen and (min-width: 641px) and (max-width: 768px)" />
+        <link rel="stylesheet" type="text/css" href="GeoGebra/includes/css/phone.ltr.css?v=1513086248" media="screen and (min-width: 0px) and (max-width: 640px)" />
+        <link rel="stylesheet" type="text/css" href="GeoGebra/css/general.ltr.css?v=1513086248" />
+                <link rel="stylesheet" type="text/css" href="GeoGebra/css/worksheet/ws.view.ltr.css?v=1513086248" />
+
+        <link href="GeoGebra/css/wysibb/default/wbbtheme.css" media="screen" rel="stylesheet" type="text/css" />
+<link href="GeoGebra/css/wysibb/wysibb.css" media="screen" rel="stylesheet" type="text/css" />
+<link href="GeoGebra/css/group/groups.ltr.css?v=1513086248" media="screen" rel="stylesheet" type="text/css" />
+<link href="GeoGebra/css/compiled.css?v=1513086248" media="screen" rel="stylesheet" type="text/css" />
+                    <script type="text/javascript" src="GeoGebra/scripts/jquery.min.js?v=1513086248"></script>
+        
+        <script type="text/javascript" src="GeoGebra/scripts/jquery.simplemodal.js?v=1513086248"></script>
+        <script type="text/javascript" src="GeoGebra/scripts/worksheet/ws-header-footer.js?v=1513086248"></script>
+
+        
+        <script type="text/javascript" src="GeoGebra/scripts/jlatexmath/texthandlers.js?v=1513086248"></script>
+<script type="text/javascript" src="GeoGebra/scripts/jlatexmath/jlatexmath.js"></script>
+<script type="text/javascript" src="GeoGebra/scripts/jlatexmath/jlatexmath-tube.js"></script>
+<script type="text/javascript">
+    //<![CDATA[
+    window.GGBT_texthandlers.setLatexRenderer("jlatexmath");    //]]>
+</script>
+<script type="text/javascript">
+    //<![CDATA[
+    
+                function escapeHtml(text) {
+                  return text
+                      .replace(/(&)/g, "&amp;")
+                      .replace(/(<)/g, "&lt;") 
+                      .replace(/(>)/g, "&gt;")
+                      .replace(/(")/g, "&quot;")
+                      .replace(/(')/g, "&#039;");
+                }
+
+                function GGBT_parseLatexes() {
+                  if (window.GGBT_texthandlers.isLatexRenderer("mathquill")) {
+                        $(".mathquill-embedded-latex").mathquill();
+                    } else {
+                        window.GGBT_jlatexmath.drawLatexOnjQuery($(".jlatexmath"));
+                    }
+                }
+                jQuery(document).ready(function(e) {
+                    var content = $(".bbcode-text");
+                    content.each(function(index) {
+                        var html = window.GGBT_texthandlers.getHTMLFromBBCode(escapeHtml($(this).text())),
+                            t = $(this);
+                            t.removeClass("bbcode-text");
+                            t.html(html);
+                    });
+                    if (window.GGBT_ws_header_footer) {
+                        window.GGBT_ws_header_footer.setWsScrollerHeight();
+                    }
+                });
+                 jQuery(window).on("resize",function(e) {
+                    GGBT_parseLatexes();
+                });
+                document.addEventListener("DOMContentLoaded", function(e) {
+                    window.GGBT_parseLatexes();
+                });
+                //]]>
+</script>
+<script type="text/javascript" src="GeoGebra/scripts/general.original.js"></script>
+<script type="text/javascript" src="GeoGebra/scripts/general.original.js?v=1513086248"></script>
+<script type="text/javascript" src="GeoGebra/scripts/worksheet/general.js?v=1513086248"></script>
+<script type="text/javascript" src="GeoGebra/scripts/worksheet/view.js?v=1513086248"></script>
+<script type="text/javascript">
+    //<![CDATA[
+    
+                    window.GGBT_wsf_view.setDefaults({
+                        input: {
+                            text: {
+                                toolbar: {"math":{"text":"Maths","title":"Ins&eacute;rer Maths"},"icons":{"text":"Ic&ocirc;nes","title":"Ins&eacute;rer des ic&ocirc;nes d'outils GeoGebra"},"text":{"title":"Outils Texte"}},
+                                dlg_math: {"title":"&Eacute;diter Maths","btn_basic":"Basique","btn_greek":"Grec","btn_operators":"Op&eacute;rateurs","btn_relationships":"Connecteurs","btn_arrows":"Fl&egrave;ches","btn_delimiters":"D&eacute;limiteurs","btn_misc":"M&eacute;lange"},
+                                dlg_icons: {"title":"Choisir une ic&ocirc;ne"},
+                                wysibb_lang: ""
+                            }
+                        },
+                        useplaybutton: true
+                    });
+    
+                    //]]>
+</script>
+<script type="text/javascript" src="GeoGebra/scripts/spin.js?v=1513086248"></script>
+<script type="text/javascript" src="GeoGebra/scripts/spinner.js?v=1513086248"></script>
+<script type="text/javascript" src="GeoGebra/scripts/deployggb.js?v=1513086248"></script>
+<script type="text/javascript" src="GeoGebra/scripts/objects/timeago/jquery.timeago.js?v=1513086248"></script>
+<script type="text/javascript">
+    //<![CDATA[
+    
+            jQuery.timeago.settings.cutoff = 7*24*60*60*1000;
+            jQuery.timeago.settings.allowFuture = true;
+            //]]>
+</script>
+<script type="text/javascript" src="GeoGebra/scripts/objects/timeago/locales/jquery.timeago.en.js?v=1513086248"></script>        <script type="text/javascript">
+            //<![CDATA[
+            var ROOT_URL = 'https://www.geogebra.org';
+            var BASE_URL = 'https://www.geogebra.org';
+            var lang_confirm = "En êtes-vous sûr ? Cette action sera certainement irrévocable !";
+            var age_label = "Age:";
+            //]]>
+        </script>
+
+    </head>
+
+    <body class="ws">
+
+    
+<div class="page" itemscope itemtype="http://schema.org/CreativeWork">
+    <div style="direction: ltr">
+
+        
+            
+<div class="j-ws-header sWs-header " data-title="fonction sinus">
+
+<ul class="sWs-title">
+    <li>
+        <a class="sWs-logo icon icon-header-logo jCancel jClose"
+           href="https://www.geogebra.org"
+           title="Fermer la fen&ecirc;tre."
+           data-confirm="">
+        </a>
+    </li>
+</ul>
+
+
+    <ul class="sWs-tools jWs-tools" data-id="7813144" data-pe_id=""
+        data-user_id="48312"
+        data-loginmsg=""
+        data-loginurl=""
+        data-inbook=""
+        data-saveurl=""
+        data-yes="Oui" data-no="Non" data-cancel="Annuler">
+
+
+    
+                
+        
+        
+
+    
+                <li><a class="active-icon icon-share"
+           href="https://www.geogebra.org/material/show/id/HfNyZDS4#share-popup"           title="Partager cette ressource avec d'autres"
+           ></a></li>
+    
+        </ul>
+
+
+    
+    <div class="clear"></div>
+</div>
+
+
+    
+    <!-- Popup dialog for editing materials that are used in other books -->
+    <div id="popup-edit-inotherbook" class="message-dialog" style="display:none;">
+        <div class="message-text">
+            Cette feuille de travail fait &eacute;galement partie d'un ou de plusieurs autres GGbBooks. Les modifications seront visibles dans tous ces GGbBooks. Voulez-vous modifier la feuille de travail d'origine ou au contraire cr&eacute;er votre propre copie pour ce GGbBook ?        </div>
+        <br/>
+        <span class="button-bar">
+        <button class="button edit-original-edit">&Eacute;diter cette feuille de travail</button>
+        <button class="button edit-original-copy">Cr&eacute;er une copie</button>
+    </span>
+    </div>
+    <!-- Popup dialog for editing materials that are used in other books END -->
+
+    <!-- Popup dialog for editing materials owned by other users -->
+    <div id="popup-edit-hasotherowner" class="message-dialog" style="display:none;">
+        <div class="message-text">
+            Cette feuille de travail a &eacute;t&eacute; cr&eacute;&eacute;e par '{$1}'. Voulez-vous modifier la feuille de travail d'origine ou au contraire cr&eacute;er votre propre copie ?        </div>
+        <br/><br/>
+        <span class="button-bar">
+        <button class="button edit-original-edit">&Eacute;diter cette feuille de travail</button>
+        <button class="button edit-original-copy">Cr&eacute;er une copie</button>
+    </span>
+    </div>
+    <!-- Popup dialog for editing materials owned by other users END -->
+
+    <!-- Popup dialog for editing materials without edit rights -->
+    <div id="popup-edit-noeditrights" class="message-dialog" style="display:none;">
+        <div class="message-text">
+            Cette feuille de travail a &eacute;t&eacute; cr&eacute;&eacute;e par '{$1}' et vous n'avez l'autorisation de la modifier.<br/>Voulez-vous en cr&eacute;er une copie et l'ajouter au GGbBook ?        </div>
+        <br/><br/>
+        <span class="button-bar">
+        <button class="button edit-original-copy">Cr&eacute;er une copie</button>
+        <button class="button cancel">Annuler</button>
+    </span>
+    </div>
+    <!-- Popup dialog for editing materials without edit rights END -->    <script>
+        window.GGBT_ws_header_footer.setDefaults({
+            msg_favorite_add: "La ressource &#39;{$1}&#39; a été ajoutée à vos favorites.",
+            msg_favorite_remove: "La ressource &#39;{$1}&#39; a été retirée de vos favorites.",
+            btn_favorite_view: "Voir les ressources favorites",
+            btn_ok: "OK",
+            favorites_url: "/user/profile/id/48312/p/favorites"
+        });
+    </script>
+
+
+            <div class="wsf-ws-scroller " data-id="7813144" data-mode="view" data-taskisro="true" data-taskissaveable="false" data-grouptype="" >
+                <div class="wsf-wrapper">
+
+                    
+                    <!-- APPENDWORKSHEETSCRIPTS starts --><!-- APPENDWORKSHEETSCRIPTS ends -->
+<div class="worksheet_tbl" data-appmode="">
+    <script type="text/javascript">
+        window.worksheet_applet_ids_7813144 = [];
+    </script>
+    <h1 itemprop="headline" class="wsf-worksheet-title"
+        >fonction sinus            </h1>
+    
+    <div id="worksheet_element_4504777" class="worksheet_element wsf-content-added content-added-content" data-mat-id="4504777" data-type="G" >
+
+    
+<div class="ws-element-header notitle">
+    <ul class="wsf-buttons wsf-element-toolbar">
+
+    </ul>
+    <div class="clear"></div>
+</div>
+
+            <div style="padding: 0" class="ws-element-applet">
+
+                <div class="applet_container" id="applet_container_7813145">
+    </div>
+<script type="text/javascript">
+    var parameters = {"id":"ggbApplet7813145","width":"1007","height":"558","showToolBar":false,"showMenuBar":false,"showAlgebraInput":false,"allowStyleBar":false,"showResetIcon":true,"enableLabelDrags":false,"enableShiftDragZoom":true,"enableRightClick":false,"showToolBarHelp":false,"errorDialogsActive":true,"useBrowserForJS":false,"ggbBase64":"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","language":"fr","isPreloader":false,"screenshotGenerator":false,"preventFocus":true,"showSplash":false,"scale":"1","fixApplet":false,"prerelease":false,"playButtonAutoDecide":true,"playButton":false,"canary":false,"allowUpscale":false};
+    parameters.appletOnLoad = function() {
+        if (typeof $ === "function" && window.GGBT_wsf_view !== undefined) {
+            var container =  $("#applet_container_7813145");
+            window.GGBT_wsf_view.postProcessApplet(container.parents('.content-added-content'));
+        }
+    };
+    /** is3D=is 3D applet using 3D view, AV=Algebra View, SV=Spreadsheet View, CV=CAS View, EV2=Graphics View 2, CP=Construction Protocol, PC=Probability Calculator, DA=Data Analysis, FI=Function Inspector, macro=Macro View */
+    var views = {"is3D":0,"AV":0,"SV":0,"CV":0,"EV2":0,"CP":0,"PC":0,"DA":0,"FI":0,"PV":0,"macro":0};
+    var applet_7813145 = new GGBApplet('5.0', parameters, views, true);
+
+    if ((navigator.appVersion.indexOf('MSIE')+1?parseFloat(navigator.appVersion.split('MSIE')[1]):999) < 11) { // WebGL is supported since IE 11
+        applet_7813145.setHTML5Codebase('GeoGebra/HTML5/5.0/web/', 'true');
+    } else {
+        applet_7813145.setHTML5Codebase('GeoGebra/HTML5/5.0/web3d/', 'true');
+    }
+    applet_7813145.setPreviewImage('GeoGebra/files/material-UHBsQY3T.png', 'GeoGebra/images/GeoGebra_loading.png', null);
+    var appletType_7813145 = 'auto';
+    $(function($) {
+        applet_7813145.inject('applet_container_7813145', 'auto');
+    });
+</script>
+            <script type="text/javascript">
+                window.worksheet_applet_ids_7813144.push(7813145);
+            </script>
+        </div>
+
+            
+        
+    </div>
+
+
+    <div class="save-wrapper" data-saveurl="/worksheet/saveexercise/id/HfNyZDS4">
+        <div class="wsf-btn-bar-left">
+                    </div>
+    </div>
+
+</div>
+
+                                            
+<div id="save-info-inprogress" class="msg-box" style="display: none">
+    <div class="message">Sauvegarde &hellip;</div>
+</div>
+<div id="save-info-successful" class="msg-box" style="display: none">
+    <div class="message">Toutes les modifications ont &eacute;t&eacute; sauvegard&eacute;es</div>
+</div>
+<div id="save-info-error" class="msg-box" style="display: none">
+    <div class="message general">Erreur</div>
+    <div class="message error_timeout_retry" style="display: none">Un probl&egrave;me de d&eacute;lai est survenu. Essayer &agrave; nouveau ...</div>
+    <div class="message error_timeout" style="display: none">D&eacute;sol&eacute;, mais le serveur ne r&eacute;pond pas. Attendre quelques minutes, puis essayer de sauvegarder &agrave; nouveau.</div>
+</div>
+                                    </div>
+
+                
+
+
+<div class="jWS-footer sWs-footer">
+    <div class="sWs-footer-content">
+        <a class="sWs-GeoGebra" href="https://www.geogebra.org"></a>
+            &#0150;
+        <span itemprop="creator" class="sWs-footer-contributors" itemscope itemtype="http://schema.org/Person"> <a href="https://www.geogebra.org/user20075"><span class="notranslate" itemprop="name">user20075</span></a></span>    
+
+        </div>
+</div>
+
+            </div>
+
+            <div class="wsf-info-wrapper">
+
+        <div class="wsf-info-scroller">
+            <div class="wsf-wrapper">
+                <a class="wsf-button-information-close" title="Cacher information"></a>
+                <h1 id="wsf-info-title" class="wsf-title">Information: fonction sinus</h1>
+                <ul id="wsf-content-info"></ul>
+            </div>
+        </div>
+
+    </div>
+
+    <script>
+        if (window.GGBT_wsf_general) {
+            window.GGBT_wsf_general.setDefaults({
+                base_url: "https://www.geogebra.org",
+                base_path: "GeoGebra",
+                info: {
+                    wsfButtonInformation : {
+                        title: {
+                            show: "Afficher information pour cette feuille de travail",
+                            hide: "Cacher information"
+                        }
+                    },
+                    title: {
+                        text : "Information"
+                    }
+                },
+                url: {
+                    link: "Lien"                }
+            });
+        }
+    </script>
+
+            </div>
+
+</div>
+        <div class="ajax-loading-glass"></div>
+    </body>
+</html>
